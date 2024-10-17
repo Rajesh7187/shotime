@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link rel="stylesheet" href="shotime.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Ticket Booking</h1>
+        <nav>
+            <ul>
+                <li><a href="#now-showing">Now Showing</a></li>
+                <li><a href="#upcoming">Upcoming Movies</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="now-showing">
+        <h2>Now Showing</h2>
+        <div class="movie-list">
+            <div class="movie-card">
+                <img src="movie1.jpg" alt="Movie 1">
+                <h3>Movie Title 1</h3>
+                <p>Genre: Action</p>
+                <p>Price: $10</p>
+                <button onclick="openBookingModal('Movie Title 1', 10)">Book Now</button>
+            </div>
+            <div class="movie-card">
+                <img src="movie2.jpg" alt="Movie 2">
+                <h3>Movie Title 2</h3>
+                <p>Genre: Drama</p>
+                <p>Price: $12</p>
+                <button onclick="openBookingModal('Movie Title 2', 12)">Book Now</button>
+            </div>
+            <div class="movie-card">
+                <img src="movie3.jpg" alt="Movie 3">
+                <h3>Movie Title 3</h3>
+                <p>Genre: Comedy</p>
+                <p>Price: $8</p>
+                <button onclick="openBookingModal('Movie Title 3', 8)">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Tickets</h2>
+            <form id="bookingForm" onsubmit="return bookTickets()">
+                <p><strong>Movie:</strong> <span id="selectedMovie"></span></p>
+                <p><strong>Price per ticket:</strong> $<span id="ticketPrice"></span></p>
+
+                <label for="showtime">Select Showtime:</label>
+                <select id="showtime" required>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                </select>
+
+                <label for="tickets">Number of Tickets:</label>
+                <input type="number" id="tickets" min="1" max="10" value="1" required>
+
+                <p><strong>Total Cost:</strong> $<span id="totalCost">0</span></p>
+
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@movietickets.com</p>
+        <p>Phone: +1 234 567 890</p>
+        <p>Address: 123 Movie Street, Film City</p>
+    </footer>
+
+    <script src="shotime.js"></script>
+</body>
+</html>
